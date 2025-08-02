@@ -1,0 +1,28 @@
+[User Uploads Image in Browser]
+        │
+        ▼
+[Flask Receives POST Request at /analyze]
+        │
+        ▼
+[Save Image to static/uploads]
+        │
+        ▼
+[Read Image using OpenCV]
+        │
+        ▼
+[Detect Text using EasyOCR]
+        │
+        ▼
+[Extract License Plate Text]
+        │
+        ▼
+[Call get_vehicle_info(plate_text)]
+        │
+        ▼
+[Receive Vehicle Data (API or Mock)]
+        │
+        ▼
+[Send JSON Response to Browser]
+        │
+        ▼
+[Frontend Displays Plate and Vehicle Info]
