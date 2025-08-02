@@ -1,9 +1,18 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load variables from .env file
 
 def get_vehicle_info(plate_number):
     url = "https://apisetu.gov.in/vahan/vehicleinfo"  # Sample endpoint
+    token = os.getenv("API_TOKEN")
+
+    if not token:
+        return {"error": "API token not found in environment variables"}
+
     headers = {
-        'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+        'Authorization': f'Bearer {token}',
         'Content-Type': 'application/json'
     }
     payload = {
@@ -15,4 +24,4 @@ def get_vehicle_info(plate_number):
     if response.status_code == 200:
         return response.json()
     else:
-        return {"error": "Failed to fetch data"}
+        return {"error": f"Failed to fetch data, status code: {response.status_code}"}
