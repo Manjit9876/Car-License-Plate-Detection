@@ -39,6 +39,7 @@ pip install -r requirements.txt
 🔑 Setup API Token :
 API_TOKEN=your_actual_api_token_here
 
+📁 Project Structure
 Car-License-Plate-Detection/
 ├── app.py
 ├── api_lookup.py
