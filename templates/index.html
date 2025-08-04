@@ -3,32 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>License Plate Recognition</title>
-  <!-- Link external CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <div class="main-wrapper">
+    <div class="container">
+      <h1>🚘 LICENSE PLATE RECOGNITION</h1>
 
-<div class="container">
-  <h1>🚘 LICENSE PLATE RECOGNITION</h1>
+      <p><strong>Upload an image:</strong></p>
+      <label for="imageInput" class="custom-file-upload">📁 Choose Image</label>
+      <input type="file" id="imageInput" accept="image/*" onchange="showFileName()">
+      <div id="fileNameDisplay">No file chosen</div>
+      <br>
+      <button onclick="upload()">Submit</button>
 
-  <p><strong>Upload an image:</strong></p>
-  <label for="imageInput" class="custom-file-upload">📁 Choose Image</label>
-  <input type="file" id="imageInput" accept="image/*" onchange="showFileName()">
-  <div id="fileNameDisplay">No file chosen</div>
-  <br>
-  <button onclick="upload()">Submit</button>
+      <p><strong>Or use your webcam:</strong></p>
+      <button onclick="startCamera()">📷 Start Webcam</button>
+      <button onclick="capture()">🎯 Capture</button>
+      <br>
+      <video id="video" autoplay></video>
+      <canvas id="canvas"></canvas>
+    </div>
 
-  <p><strong>Or use your webcam:</strong></p>
-  <button onclick="startCamera()">📷 Start Webcam</button>
-  <button onclick="capture()">🎯 Capture</button>
-  <br>
-  <video id="video" width="400" autoplay></video>
-  <canvas id="canvas" width="400" height="300"></canvas>
-
-  <div id="output"></div>
+     <div id="outputPanel" class="output-panel" style="display: none;">
+      <img id="capturedImage" style="max-width: 100%; display: none; border-radius: 8px; margin-bottom: 10px;">
+      <div id="outputText">🔍 Processing...</div>
+    </div>
 </div>
+    
+  </div>
 
-<!-- Link external JS just before closing body -->
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
